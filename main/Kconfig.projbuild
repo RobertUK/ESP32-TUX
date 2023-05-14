@@ -1,7 +1,7 @@
 menu "ESP32-TUX Configuration"
     menu "Device Config"
 
-    choice TUX_DEVICE_SELECTED
+    choice  
 		default TUX_DEVICE_NONE
         prompt "Select the device"
 		config TUX_DEVICE_NONE
@@ -30,12 +30,20 @@ menu "ESP32-TUX Configuration"
                 partitions/partition-4MB.csv
 
         config TUX_DEVICE_WT32_SC01_PLUS
-            bool "Wireless-Tag WT32-SC01-Plus - 8Bit Parallel - 8MB Flash"
+            bool "Wireless-Tag WT32-SC01-Plus - 8Bit Parallel - 8MB Flash2h"
             help
                 This is the device with 8MB Flash on a WT32-SC01-Plus device.
 
                 The corresponding CSV file in the partition directory is
                 partitions/partition-8MB.csv
+
+        config TUX_DEVICE_ESP32_ILI9341
+            bool "ESP32 WITH ILI9341 - SPI - 4MB Flash"
+            help
+                ESP32 with 4MB flash and ILI9341 / XPT2046.
+
+                The corresponding CSV file in the partition directory is
+                partitions/partition-4MB.csv
     endchoice
     
     # TODO: Work in progress

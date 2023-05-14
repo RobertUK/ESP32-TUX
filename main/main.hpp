@@ -69,6 +69,9 @@ using namespace std ;
 #elif defined(CONFIG_TUX_DEVICE_ESP32S335D)
 // Makerfabs ESP32S335D (ESP32-S3 + 16Bit Parellel) with SD Card, Audio support
 #include "conf_Makerfabs_S3_PTFT.h"    
+#elif defined(CONFIG_TUX_DEVICE_ESP32_ILI9341)
+// Makerfabs ESP32S335D (ESP32-S3 + 16Bit Parellel) with SD Card, Audio support
+#include "conf_ESP32_ILI9341.h"    
 #else
     #error Unsupported device. Configure device in menuconfig
 #endif
@@ -80,7 +83,7 @@ using namespace std ;
 /* SD Card support */
 #if defined(SD_SUPPORTED)
         // Shared SPI Bus with Display
-    #if defined(WT32_SC01) //|| defined(MAKERFAB_ESP32S3_SPI)
+    #if defined(WT32_SC01) || defined(ILI9341_SD)
         #include "helper_storage_shared.hpp"
     #else
         // Display and SD card is not on same SPI bus

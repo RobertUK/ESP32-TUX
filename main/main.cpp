@@ -153,7 +153,7 @@ static void tux_event_handler(void* arg, esp_event_base_t event_base,
 static void wifi_event_handler(void* arg, esp_event_base_t event_base,
                           int32_t event_id, void* event_data)
 {
-    //ESP_LOGD(TAG, "%s:%s: wifi_event_handler", event_base, get_id_string(event_base, event_id));
+    ESP_LOGD(TAG, "%s:%s: wifi_event_handler", event_base, get_id_string(event_base, event_id));
     if (event_base == WIFI_EVENT  && event_id == WIFI_EVENT_STA_CONNECTED)
     {
         is_wifi_connected = true;
@@ -217,7 +217,7 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base,
 extern "C" void app_main(void)
 {
     esp_log_level_set(TAG, ESP_LOG_DEBUG);      // enable DEBUG logs for this App
-    //esp_log_level_set("SettingsConfig", ESP_LOG_DEBUG);    
+    esp_log_level_set("SettingsConfig", ESP_LOG_DEBUG);    
     esp_log_level_set("wifi", ESP_LOG_WARN);    // enable WARN logs from WiFi stack
 
     // Print device info
